@@ -28,7 +28,7 @@ function App() {
         {books.map((book, index) => (
 
           <div key={index}>
-            <h3>name: {book.name}  id: {book.id} author : {book.author}</h3>
+            <h1>name: {book.name}  id: {book.id} author : {book.author}</h1>
           </div>
         ))}
          
