@@ -3,13 +3,13 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  const [books, setBooks] = useState([]); 
+  const [products, setProducts] = useState([]); 
 
   async function fetchBooks() {
     try {
-      const response = await fetch("http://localhost:3001/AllBooks");
-      const booksData = await response.json();
-      setBooks(booksData);
+      const response = await fetch("http://localhost:3001/Products/");
+      const productsData = await response.json();
+      setProducts(productsData);
     } catch (error) {
       console.error("Error fetching books:", error);
     }
@@ -23,17 +23,23 @@ function App() {
       <button onClick={fetchBooks}>
         Get the Books!
       </button>
-      
+
+      {/* אם אני מבקש את המערך כולו  */}
       <div>
-        {books.map((book, index) => (
+        {products.map((product, index) => (
 
           <div key={index}>
-            <h1>name: {book.name}  id: {book.id} author : {book.author}</h1>
+            <h1>  id: {product.id} price: {product.price}</h1>
           </div>
         ))}
          
       </div>
 
+      {/* אם אני לוקח רק אחד /*}
+
+      {/* <div>
+        {products.title}
+      </div> */}
         
 
     </div>
